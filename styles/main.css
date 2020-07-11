@@ -5,11 +5,6 @@ body {
     margin-left: 10em;
     max-width: 50%;
     font-size: 18px;
-    background-image: url("../circle.png");
-    background-size: 100px;
-    background-repeat: repeat-y;
-    background-attachment: fixed;
-    background-position: left;
 }
 
 img {
@@ -21,6 +16,7 @@ h1 {
     font-weight: 600;
     font-size: 3em;
     margin-bottom: 0px;
+    line-height:1.5em;
 }
 
 p {
