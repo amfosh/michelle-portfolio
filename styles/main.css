@@ -24,14 +24,14 @@ a {
 /* Media Queries: Tablet Landscape */
 @media only screen and (max-width: 950px) {
     .links {
-       padding-left: 10%;
-       padding-right: 10%;
+       margin-left: 10px;
+       margin-right: 10px;
     }
  }
  
  @media only screen and (max-width: 600px) {
     .links {
-       padding-left: 0;
-       padding-right: 0;
+       margin-left: 0;
+       margin-right: 0;
     }
  }
