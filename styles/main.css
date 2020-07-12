@@ -6,7 +6,7 @@ body {
     margin-left: 10em;
     max-width: 50%;
     font-size: 18px;
-    background-color: 000;
+    background-color: #fff;
 }
 
 .videoContainer {
@@ -85,12 +85,16 @@ a:hover {
         margin-left: 5em;
 
     }
+
+    #myVideo {
+        visibility: hidden;
+
+    }
  }
  
  @media only screen and (max-width: 600px) {
     body {
         margin-top: 5px;
-        margin-left: 10px;
         max-width: 100%;
     }
 
