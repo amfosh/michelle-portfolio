@@ -86,10 +86,6 @@ a:hover {
 
     }
 
-    .main-menu {
-        width: 100%;
-    }
-
     #myVideo {
         visibility: hidden;
 
@@ -104,6 +100,10 @@ a:hover {
 
     p {
         margin-right: 0;
+    }
+
+    .main-menu {
+        width: 100%;
     }
 
     #myVideo {
