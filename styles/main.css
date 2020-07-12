@@ -89,7 +89,8 @@ a {
 }
 
 a:hover {
-    text-decoration: underline;
+    color: rgb(147, 150, 151);
+    text-decoration: none;
   }
 
 /* Media Queries: Tablet Landscape */
