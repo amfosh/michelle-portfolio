@@ -44,6 +44,16 @@ body {
     z-index: 3;
 }
 
+.main-menu-freelance {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 70%;
+    text-align: center;
+}
+
 img {
     max-width: 10%;
     height: auto;
@@ -74,6 +84,8 @@ li {
 a {
     color: #1CA8E0;
     text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 a:hover {
