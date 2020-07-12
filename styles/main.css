@@ -86,6 +86,10 @@ a:hover {
 
     }
 
+    .main-menu {
+        width: 100%;
+    }
+
     #myVideo {
         visibility: hidden;
 
