@@ -35,8 +35,8 @@ body {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    margin-right: 20px;
-    /* background-color: rgba(252, 252, 252, 0.5); */
+    width: 40%;
+    text-align: center;
     padding-top: 50px;
     padding-left: 50px;
     padding-right: 50px;
@@ -53,14 +53,15 @@ h1 {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
     font-weight: 400;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 2px;
     line-height:1.5em;
     color: #000;
 }
 
 p {
     margin-top: 0px;
+    margin-bottom: 0px;
     font-weight: 300;
     color: #19191a;
 }
