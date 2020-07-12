@@ -103,7 +103,10 @@ a:hover {
     }
 
     .main-menu {
-        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
     }
 
     #myVideo {
