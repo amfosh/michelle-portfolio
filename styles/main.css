@@ -45,13 +45,22 @@ body {
 }
 
 .main-menu-freelance {
-    text-align: left;
+    text-align: center;
+    line-height: 2em;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 70%;
+}
+
+.contact {
+    color: #19191a;
+}
+
+.writing {
+    color: #19191a;
 }
 
 img {
@@ -78,6 +87,7 @@ p {
 
 li {
     margin-top: 0px;
+    list-style: none;
 }
 
 a {
