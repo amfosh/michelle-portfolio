@@ -6,19 +6,10 @@ body {
     margin-left: 10em;
     max-width: 50%;
     font-size: 18px;
-    background-color: #fff;
+    background-color: #e6eaec;
     text-align: center;
     overflow-x: hidden; 
 }
-
-/* .videoContainer {
-    position: relative;
-    width: auto;
-    height: auto;
-    border-radius: 5px;
-    background-attachment: scroll;
-    overflow: hidden;
-} */
 
 #myVideo {
     position: absolute;
@@ -54,13 +45,13 @@ body {
 }
 
 .main-menu-freelance {
+    text-align: left;
     position: absolute;
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 70%;
-    text-align: center;
 }
 
 img {
@@ -86,7 +77,6 @@ p {
 }
 
 li {
-    list-style: none;
     margin-top: 0px;
 }
 
@@ -130,6 +120,11 @@ a:hover {
         position: absolute;
         top: 50%;
         left: 50%;
+        width: 80%;
+    }
+
+    .main-menu-freelance {
+        position: absolute;
         width: 80%;
     }
 
