@@ -135,7 +135,7 @@ a:hover {
 
     .main-menu-freelance {
         position: absolute;
-        line-height: hidden;
+        line-height: normal;
         width: 80%;
     }
 
