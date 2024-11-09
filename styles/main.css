@@ -108,19 +108,19 @@ ul, small {
 }
 
 a {
-    color: rgb(160, 159, 159);
+    color: rgb(126, 126, 126);
     text-decoration: none;
 }
 
-
 a:hover {
-    color: rgb(126, 126, 126);
+    color: rgb(80, 79, 79);
     text-decoration: none;
 }
 
 .res {
     display: none;
 }
+
 
 /* Contact Section  */
 .get-in-touch {
