@@ -36,8 +36,6 @@ body {
 
 .content img {
     overflow:hidden;
-    -webkit-border-radius:50px;
-    -moz-border-radius:50px;
     border-radius:50%;
     width:250px;
     height: 250px;
@@ -141,8 +139,8 @@ i {
 
 /* Media Queries */
 @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+and (min-width : 768px) 
+and (max-width : 1024px) {
 
     #banner .intro h1 {
         font-size: 2.5rem;
@@ -159,7 +157,7 @@ and (max-device-width : 1024px) {
     }
 
     
-    .columm {
+    .column {
         width: 100%;
     }
 }
@@ -191,7 +189,7 @@ and (orientation : portrait) {
         background: #fff; 
     }
 
-    .columm {
+    .column {
         width: 100%;
     }
 
@@ -225,7 +223,7 @@ and (orientation : landscape) {
        
     .content {
            width: 100%;
-           background-position: cover;
+           background-size: cover;
     }
 
     .banner {
