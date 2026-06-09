@@ -1,124 +1,560 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="HandheldFriendly" content="true">
-  <title>Michelle Meier</title>
-  <link rel="stylesheet" href="./styles/main.css" />
-  <link rel="stylesheet" href="https://use.typekit.net/qkd4tqz.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-  <script src="https://use.fontawesome.com/58bcbed17c.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174474042-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michelle Meier — B2B Healthcare Writer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    gtag('config', 'UA-174474042-1');
-  </script>
+    :root {
+      --bg: #F2F2F2;
+      --surface: #ffffff;
+      --ink: #1c1b18;
+      --ink-mid: #5a5750;
+      --ink-light: #9a9690;
+      --border: rgba(28, 27, 24, 0.09);
+      --border-hover: rgba(28, 27, 24, 0.18);
+      --accent: #2d6a4f;
+      --accent-light: #e8f3ed;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Jost', system-ui, sans-serif;
+    }
+
+    html {
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 3rem 5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5rem;
+      opacity: 0;
+      animation: rise 0.6s ease forwards;
+    }
+
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 1.625rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+    }
+
+    .nav-cta {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--surface);
+      background: var(--ink);
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta:hover { background: var(--ink-mid); }
+
+    .hero {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: rise 0.6s ease 0.1s forwards;
+    }
+
+    .hero-left h1 {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+      max-width: 700px;
+    }
+
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--ink-mid);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+
+    .ai-statement {
+      font-size: 0.8125rem;
+      color: var(--accent);
+      background: var(--accent-light);
+      border-left: 2px solid var(--accent);
+      padding: 0.6rem 0.9rem;
+      border-radius: 0 6px 6px 0;
+      max-width: 440px;
+      line-height: 1.55;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.25rem;
+      padding-top: 0.5rem;
+    }
+
+    .avatar {
+      width: 180px;
+      height: 220px;
+      border-radius: 120px 120px 40px 40px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .specialisms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+      max-width: 260px;
+    }
+
+    .spec-tag {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: var(--ink-mid);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .section-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 1rem;
+    }
+
+    .services {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: rise 0.6s ease 0.2s forwards;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 4rem;
+    }
+
+    .service-item {
+      padding: 0;
+    }
+
+    .service-item:last-child {
+      border-bottom: none;
+    }
+
+    .service-title {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .service-list {
+      font-size: 0.9375rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+    }
+
+    .featured {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: rise 0.6s ease 0.3s forwards;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      padding: 0.22rem 0.6rem;
+      border-radius: 5px;
+      width: fit-content;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-report      { background: #f0eefe; color: #3c3489; }
+    .badge-guide       { background: #e2f4ee; color: #085041; }
+    .badge-blog        { background: #e7f1fb; color: #0c447c; }
+    .badge-case        { background: #eaf3de; color: #27500a; }
+    .badge-infographic { background: #faeeda; color: #633806; }
+    .badge-landing-page { background: #f8e1e4; color: #750a1a; }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 1.0625rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .card-desc {
+      font-size: 0.8125rem;
+      color: var(--ink-mid);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .card-meta { font-size: 0.75rem; color: var(--ink-mid); }
+
+    .card-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .card-link:hover { color: var(--ink-mid); }
+
+    .more-work {
+      opacity: 0;
+      animation: rise 0.6s ease 0.3s forwards;
+    }
+
+    .list-row {
+      display: grid;
+      grid-template-columns: 120px 1fr 80px;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .list-row:last-child { border-bottom: none; }
+
+    .list-body { min-width: 0; }
+
+    .list-title {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 2px;
+    }
+
+    .list-meta { font-size: 0.75rem; color: var(--ink-mid); }
+
+    .list-link {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      text-decoration: none;
+      text-align: right;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .list-link:hover { color: var(--ink); }
+
+    footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: rise 0.6s ease 0.4s forwards;
+    }
+
+    .footer-left p:first-child {
+      font-family: var(--serif);
+      font-size: 1.625rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 0.35rem;
+    }
+
+    .footer-left p:last-child {
+      font-size: 0.8125rem;
+    }
+
+    .footer-email {
+      font-size: 0.8125rem;
+      color: var(--ink-mid);
+      text-decoration: none;
+    }
+
+    .footer-email:hover {
+      color: var(--ink);
+    }
+
+    .footer-cta {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--surface);
+      background: var(--ink);
+      text-decoration: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 999px;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .footer-cta:hover { background: var(--ink-mid); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 780px) {
+      .page { padding: 2rem 1.5rem 4rem; }
+      nav { margin-bottom: 3rem; }
+      .hero-left h1 { font-size: 2.25rem; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .list-row { grid-template-columns: 100px 1fr 60px; gap: 0.75rem; }
+      footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-left h1 { font-size: 1.75rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .list-row { grid-template-columns: 90px 1fr; }
+      .list-link { display: none; }
+    }
+  </style>
 </head>
-
 <body>
-  <div id="banner">
-    <video autoplay muted loop id="myVideo" poster="./assets/poster.jpg">
-        <source src="./assets/typing.mp4" type="video/mp4">
-    </video>
-    
-    <div class="intro">
-        <h1>Hello! I’m Michelle, a freelance writer based in New York.</h1>
+<div class="page">
+
+  <nav>
+    <span class="nav-name">Michelle Meier</span>
+    <a class="nav-cta" href="mailto:email.mmeier@gmail.com">Get in touch →</a>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-left">
+      <h1>B2B content writer.</h1>
+      <p class="hero-sub">I am experienced freelance content writer with clients throughout the health tech space, including Tebra, Clarest Health, CipherHealth, and others.</p>
     </div>
   </div>
 
-  <section class="content">
-    <div class="column-container">
-      <div class="column">
-        <img src="./assets/mm.jpeg">
+  <section class="services">
+    <p class="section-label">Types of content I've written</p>
+    <div class="services-grid">
+
+      <div class="service-item">
+        <p class="service-title">Thought leadership & educational content</p>
+        <p class="service-list">Blogs and articles ༶ White papers ༶ Research reports ༶ Guides and eBooks ༶ Infographics</p>
       </div>
-      <div class="column">
-            <h2>Spaces</h2>
-            <ul>
-                <li>B2B/SaaS</li>
-                <li>Digital Health</li>
-                <li>U.S. Healthcare</li>
-                <li>Arts Education</li>
-                <li>Publishing</li>
-            </ul>
+
+      <div class="service-item">
+        <p class="service-title">Customer-focused content</p>
+        <p class="service-list">Case studies ༶ Customer stories ༶ Interviews ༶ Testimonials</p>
+      </div>
+
+      <div class="service-item">
+        <p class="service-title">Product & sales content</p>
+        <p class="service-list">One-pagers ༶ Solution briefs ༶ Sell sheets ༶ Sales enablement materials</p>
+      </div>
+
+      <div class="service-item">
+        <p class="service-title">Campaign & promotional content</p>
+        <p class="service-list">Email marketing ༶ Nurture sequences ༶ Webinar content ༶ Landing pages ༶ Social media</p>
+      </div>
+
+      <div class="service-item">
+        <p class="service-title">Corporate communications</p>
+        <p class="service-list">Press releases ༶ Internal communications ༶ Executive messaging ༶ Award submissions</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="featured">
+    <p class="section-label">Featured work</p>
+    <div class="hero-grid">
+
+      <div class="hero-card">
+        <span class="badge badge-report">Research report</span>
+        <p class="card-title">Not all rounds improve patient satisfaction — here's what 6,000 HCAHPS surveys have to say</p>
+        <p class="card-desc">A data-driven analysis of what moves the needle on patient satisfaction, based on 6,000 surveys across six organizations.</p>
+        <div class="card-footer">
+          <span class="card-meta">CipherHealth</span>
+          <a class="card-link" href="./Cipher_1.pdf" target="_blank" rel="noopener">View report →</a>
         </div>
+      </div>
 
-        <div class="column">
-                <h2>Services</h2>
-                <ul>
-                    <li>Blogs</li>
-                    <li>Case studies</li>
-                    <li>Whitepapers</li>
-                    <li>Website content</li>
-                    <li>Product Marketing</li>
-                    <li>One-sheets</li>
-                    <li>Sell sheets</li>
-                    <li>Infographics</li>
-                    <li>Email Campaigns</li>
-                </ul>
+      <div class="hero-card">
+        <span class="badge badge-guide">Sales enablement guide</span>
+        <p class="card-title">How to introduce AI to your clients</p>
+        <p class="card-desc">A practical field guide helping Tebra partners identify pain points, start AI conversations, and position Note Assist to healthcare providers.</p>
+        <div class="card-footer">
+          <span class="card-meta">Tebra</span>
+          <a class="card-link" href="./Tebra_2.pdf" target="_blank" rel="noopener">View guide →</a>
         </div>
-
+      </div>
 
     </div>
-    <hr>
-    <div class="writing">
-        <h3>Recent Work</h3>
-        <h4 class="comp">Blogs & Articles</h4>
-        <ul class="comp">
-          <li class="active"><a href="https://cipherhealth.com/blog/cost-related-medication-non-adherence-digital-tools/" target="_blank">Addressing Cost-Related Medication Non-adherence with Digital Tools</a></li>
-          <li class="active"><a href="https://cipherhealth.com/blog/the-benefits-of-a-multimodal-approach-to-patient-outreach/" target="_blank">The Benefits of a Multimodal Approach to Patient Outreach</a></li>
-          <li class="active"><a href="https://www.beckershospitalreview.com/patient-flow/the-automated-call-patients-want-to-answer-a-look-into-how-emergency-departments-improve-care-transitions.html" target="_blank">The Automated Call Patients Want to Answer</a></li>
-        </ul>
-        <h4 class="comp">Case Studies</h4>
-        <ul class="comp">
-          <li class="active"><a href="https://cipherhealth.com/resource/case-study/cipherhealths-outreach-solutions-reduce-hospital-readmissions-by-56-percent/" target="_blank">CipherHealth’s Outreach Solutions Reduce Hospital Readmissions by 56 Percent</a></li>
-          <li class="active"><a href="https://cipherhealth.com/resource/case-study/improve-outcomes-and-create-financial-value-with-cipherhealths-outreach-solutions/" target="_blank">Improve Outcomes and Create Financial Value with CipherHealth</a></li>
-          <li class="active"><a href="https://cipherhealth.com/resource/case-study/the-impact-of-purposeful-digital-rounding-on-one-inpatient-rehabilitation-center/" target="_blank">The Impact of Purposeful Digital Rounding on One Inpatient Rehabilitation Center</a></li>
-          <li class="active"><a href="https://cipherhealth.com/resource/case-study/increase-patient-engagement-with-multiple-outreach-modalities/" target="_blank">Increase Patient Engagement With Multiple Outreach Modalities</a></li>
-        </ul>
-        <h4 class="comp">Infographics & One-sheets</h4>
-        <ul class="comp">
-          <li class="active"><a href="https://cipherhealth.com/blog/infographic-roadblocks-to-medication-and-how-to-solve-them/" target="_blank">Roadblocks to Medication and How to Solve Them</a></li>
-          <li class="active"><a href="https://cipherhealth.com/blog/cipherhealth-wins-best-in-klas-for-patient-communications-outreach-2023/" target="_blank">CipherHealth wins Best in KLAS for Patient Communications (Outreach) 2023</a></li>
-          <li class="active"><a href="https://www.tebra.com/infographic/pe-patient-portals-infographic/" target="_blank">The do’s and don’ts of patient portals</a></li>
-          <li class="active"><a href="https://www.tebra.com/onesheet/pg-negative-reviews-one-sheet/" target="_blank">Make the most of negative patient reviews</a></li>
-          <li class="active"><a href="https://www.tebra.com/infographic/cd-automate-tasks-infographic/" target="_blank">The top 5 administrative tasks to automate</a></li>
-        </ul>
-        <ul class="comp">
-          <li><a href="mailto:email.mmeier@gmail.com">Contact me </a>for reports, workbooks, and other samples.</li>
-        </ul>
+  </section>
 
-        <ul class="res">
-          <li class="active"><a href="https://cipherhealth.com/resource/case-study/improve-outcomes-and-create-financial-value-with-cipherhealths-outreach-solutions/" target="_blank">Healthcare Tech Case Study 01</a></li>
-          <li class="active"><a href="https://cipherhealth.com/resource/case-study/cipherhealths-outreach-solutions-reduce-hospital-readmissions-by-56-percent/" target="_blank">Healthcare Tech Case Study 02</a></li>
-          <li class="active"><a href="https://cipherhealth.com/blog/cost-related-medication-non-adherence-digital-tools/" target="_blank">Healthcare Tech Blog Post 01</a></li>
-          <li class="active"><a href="https://www.beckershospitalreview.com/patient-flow/the-automated-call-patients-want-to-answer-a-look-into-how-emergency-departments-improve-care-transitions.html" target="_blank">Healthcare Blog Post 02</a></li>
-          <li class="active"><a href="https://cipherhealth.com/blog/infographic-roadblocks-to-medication-and-how-to-solve-them/" target="_blank">Infographic 01</a></li>
-          <li class="active"><a href="https://www.tebra.com/infographic/pe-patient-portals-infographic/" target="_blank">Infographic 02</a></li>
-          <li class="active"><a href="https://www.tebra.com/onesheet/pg-negative-reviews-one-sheet/" target="_blank">One-sheet 01</a></li>
-          <li class="active"><a href="https://www.tebra.com/ebook/pg-gpid-tackling-no-shows-and-cancellations/" target="_blank">Report 01</a></li>
-          <li class><a href="email.mmeier@gmail.com">Contact me for additonal samples.</a></li>
-        </ul>
-    </div>
-    <hr>
-    <div class="get-in-touch">
-        <h3>Have a project you'd like help with? Get in touch.</h3>
-        <ul class="social-icon">
-            <li><a href="https://www.linkedin.com/in/michelle-meier-89b5a9a/"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-            <li><a href="mailto:email.mmeier@gmail.com"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-       </ul>
-    </div>
-</section>
+  <section class="more-work">
+    <p class="section-label">More work</p>
 
-<script src="./styles/index.js"></script>
+    <div class="list-row">
+      <span class="badge badge-case">Case study</span>
+      <div class="list-body">
+        <p class="list-title">How Seattle Children's reduced pediatric readmissions by 36%</p>
+        <p class="list-meta">CipherHealth</p>
+      </div>
+      <a class="list-link" href="https://cipherhealth.com/resource/case-study/how-seattle-childrens-reduced-pediatric-readmissions-by-36-with-cipheroutreach/" target="_blank" rel="noopener">Read →</a>
+    </div>
+
+    <div class="list-row">
+      <span class="badge badge-case">Case study</span>
+      <div class="list-body">
+        <p class="list-title">Outreach solutions reduce hospital readmissions by 56%</p>
+        <p class="list-meta">CipherHealth</p>
+      </div>
+      <a class="list-link" href="https://cipherhealth.com/resource/case-study/cipherhealths-outreach-solutions-reduce-hospital-readmissions-by-56-percent/" target="_blank" rel="noopener">Read →</a>
+    </div>
+
+    <div class="list-row">
+      <span class="badge badge-blog">Blog</span>
+      <div class="list-body">
+        <p class="list-title">Addressing cost-related medication non-adherence with digital tools</p>
+        <p class="list-meta">CipherHealth</p>
+      </div>
+      <a class="list-link" href="https://cipherhealth.com/blog/cost-related-medication-non-adherence-digital-tools/" target="_blank" rel="noopener">Read →</a>
+    </div>
+
+    <div class="list-row">
+      <span class="badge badge-blog">Blog</span>
+      <div class="list-body">
+        <p class="list-title">What happens when pharmacies close — solving the pharmacy desert problem</p>
+        <p class="list-meta">Clarest</p>
+      </div>
+      <a class="list-link" href="https://clarest.com/what-happens-when-pharmacies-close-how-home-pharmacy-services-solve-the-pharmacy-desert-problem/" target="_blank" rel="noopener">Read →</a>
+    </div>
+
+    <div class="list-row">
+      <span class="badge badge-infographic">Infographic</span>
+      <div class="list-body">
+        <p class="list-title">Roadblocks to medication and how to solve them</p>
+        <p class="list-meta">CipherHealth</p>
+      </div>
+      <a class="list-link" href="https://cipherhealth.com/blog/infographic-roadblocks-to-medication-and-how-to-solve-them/" target="_blank" rel="noopener">Read →</a>
+    </div>
+
+    <div class="list-row">
+      <span class="badge badge-infographic">Infographic</span>
+      <div class="list-body">
+        <p class="list-title">The do's and don'ts of patient portals</p>
+        <p class="list-meta">Tebra</p>
+      </div>
+      <a class="list-link" href="https://www.tebra.com/infographic/pe-patient-portals-infographic/" target="_blank" rel="noopener">Read →</a>
+    </div>
+
+        <div class="list-row">
+      <span class="badge badge-landing-page">Landing page</span>
+      <div class="list-body">
+        <p class="list-title">Technology adoption in nursing education</p>
+        <p class="list-meta">Wolters Kluwer</p>
+      </div>
+      <a class="list-link" href="https://www.wolterskluwer.com/en/solutions/lippincott-nursing-faculty/dean-survey"_blank" rel="noopener">Read →</a>
+    </div>
+
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <p>Have a project in mind?</p>
+      <a class="footer-email" href="mailto:email.mmeier@gmail.com">email.mmeier@gmail.com</a>
+    </div>
+    <a class="footer-cta" href="mailto:email.mmeier@gmail.com">Let's talk →</a>
+  </footer>
+
+</div>
 </body>
 </html>
-    
-    
